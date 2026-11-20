@@ -1,32 +1,37 @@
-# React + TypeScript + Vite
+# Pedro Rocha — Data Engineer
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Personal portfolio for [Pedro Rocha](https://github.com/Pedrorocha13), built with React, TypeScript and Vite and hosted with GitHub Pages.
 
-Currently, two official plugins are available:
+## What is on the site
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Bilingual content (English / Português)
+- Professional background, with a clear progression from infrastructure and software development to data engineering
+- Practical stack: Python, SQL, Apache NiFi, Airflow, SQL Server, ClickHouse and Apache Superset
+- Selected project links: [MeepleLake](https://github.com/Pedrorocha13/MeepleLake), [MusicPulse](https://github.com/Pedrorocha13/MusicPulse) and [Weather-Pipeline](https://github.com/Pedrorocha13/Weather-Pipeline)
 
-## React Compiler
+The portfolio intentionally distinguishes production experience from work in progress. Spark, lakehouse formats and streaming are learning topics, not presented as production deployments.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Run locally
 
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+npm ci
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Build
+
+```bash
+npm run build
+```
+
+The static output is generated in `dist/`.
+
+## Where to edit the content
+
+The English and Portuguese copy, projects, experience and technology list are maintained together in [`src/content.ts`](src/content.ts).
+
+## Before publishing changes
+
+- Review any professional claims for accuracy and confidentiality.
+- Confirm the preferred public contact email before publishing. This draft deliberately preserves the currently published website address until it is confirmed.
+- Keep project descriptions aligned with the actual code and development stage.

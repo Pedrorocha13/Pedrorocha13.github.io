@@ -1,24 +1,25 @@
-function Contact() {
+import { content, type Language } from "../content";
+
+function Contact({ language }: { language: Language }) {
+  const copy = content[language].contact;
   return (
     <section className="contact" id="contact">
       <div className="container contact__container">
         <div className="section__header contact__header">
           <span className="section__number">05</span>
-          <span className="section__label">CONTACT</span>
+          <span className="section__label">{copy.label}</span>
         </div>
 
         <div className="contact__content">
           <div className="contact__headline">
             <h2>
-              Let's build something
+              {copy.headline[0]}
               <br />
-              with data.
+              {copy.headline[1]}
             </h2>
 
             <p>
-              Interested in data engineering, software,
-              analytics or just want to talk about technology?
-              Feel free to reach out.
+              {copy.description}
             </p>
           </div>
 

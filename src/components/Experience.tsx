@@ -1,45 +1,18 @@
-const experiences = [
-  {
-    period: "2026 — PRESENT",
-    role: "Data Engineer I",
-    company: "SEEDUC-RJ",
-    description:
-      "Building and maintaining ETL workflows, improving data pipelines and supporting analytics solutions with a focus on reliability and performance.",
-    technologies: [
-      "Python",
-      "SQL",
-      "Airflow",
-      "Power BI",
-      "SQL Server",
-    ],
-  },
-  {
-    period: "2022 - 2026",
-    role: "Software Engineer Full Stack",
-    company: "DRIC Software",
-    description:
-      "Worked on backend systems, APIs and database-driven applications, developing a strong software engineering foundation now applied to data platforms.",
-    technologies: [
-      "Python",
-      "Flask",
-      "SQL",
-      "React",
-      "APIs",
-      "Linux",
-    ],
-  },
-];
+import { content, type Language } from "../content";
 
-function Experience() {
+function Experience({ language }: { language: Language }) {
+  const copy = content[language].experience;
   return (
     <section className="section container" id="experience">
       <div className="section__header">
         <span className="section__number">03</span>
-        <span className="section__label">EXPERIENCE</span>
+        <span className="section__label">{copy.label}</span>
       </div>
 
+      <p className="section__intro">{copy.heading}</p>
+
       <div className="experience">
-        {experiences.map((experience) => (
+        {copy.items.map((experience) => (
           <article
             className="experience__item"
             key={`${experience.role}-${experience.period}`}

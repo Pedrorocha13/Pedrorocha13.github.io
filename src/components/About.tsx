@@ -1,41 +1,32 @@
-function About() {
+import { content, type Language } from "../content";
+
+function About({ language }: { language: Language }) {
+  const copy = content[language].about;
   return (
     <section className="section container" id="about">
       <div className="section__header">
         <span className="section__number">01</span>
-        <span className="section__label">ABOUT</span>
+        <span className="section__label">{copy.label}</span>
       </div>
 
       <div className="about">
         <div className="about__headline">
           <h2 className="section__title">
-            Software engineering
+            {copy.headline[0]}
             <br />
-            meets data engineering.
+            {copy.headline[1]}
           </h2>
         </div>
 
         <div className="about__content">
           <p className="about__lead">
-            I build data solutions with a software engineering mindset.
+            {copy.lead}
           </p>
 
-          <p>
-            My work focuses on designing and maintaining data pipelines,
-            automating workflows and transforming raw information into
-            reliable systems for analytics and decision-making.
-          </p>
-
-          <p>
-            I enjoy working across the entire data lifecycle — from APIs and
-            ingestion to processing, storage, orchestration and analytics.
-          </p>
+          {copy.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
 
           <div className="about__focus">
-            <span>PIPELINES</span>
-            <span>DATA PLATFORMS</span>
-            <span>AUTOMATION</span>
-            <span>ANALYTICS</span>
+            {copy.focuses.map((focus) => <span key={focus}>{focus}</span>)}
           </div>
         </div>
       </div>

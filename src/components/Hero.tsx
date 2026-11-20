@@ -1,25 +1,27 @@
-function Hero() {
+import { content, type Language } from "../content";
+
+function Hero({ language }: { language: Language }) {
+  const copy = content[language].hero;
   return (
     <section className="hero container" id="home">
       <div className="hero__content">
         <span className="eyebrow">
-          PEDRO ROCHA — DATA ENGINEER
+          {copy.eyebrow}
         </span>
 
         <h1 className="hero__title">
-          I build data systems
+          {copy.headline[0]}
           <br />
-          that make sense.
+          {copy.headline[1]}
         </h1>
 
         <p className="hero__description">
-          Building reliable data pipelines, scalable data platforms
-          and analytics systems.
+          {copy.description}
         </p>
 
         <div className="hero__actions">
           <a className="button button--primary" href="#projects">
-            View projects
+            {copy.projects}
           </a>
 
           <a
@@ -36,7 +38,7 @@ function Hero() {
       <div className="hero__visual" aria-label="Data pipeline">
         <div className="hero__visual-inner">
           <span className="pipeline__label">
-            DATA FLOW / 001
+            {language === "en" ? "DATA FLOW / 001" : "FLUXO DE DADOS / 001"}
           </span>
 
           <div className="pipeline">
@@ -49,7 +51,7 @@ function Hero() {
 
             <div className="pipeline__node pipeline__node--2">
               <span>02</span>
-              Ingestion
+              {language === "en" ? "Ingestion" : "Ingestão"}
             </div>
 
             <div className="pipeline__line pipeline__line--2" />
@@ -63,14 +65,14 @@ function Hero() {
 
             <div className="pipeline__node pipeline__node--4">
               <span>04</span>
-              Processing
+              {language === "en" ? "Processing" : "Processamento"}
             </div>
 
             <div className="pipeline__line pipeline__line--4" />
 
             <div className="pipeline__node pipeline__node--5">
               <span>05</span>
-              Analytics
+              {language === "en" ? "Analytics" : "Análise"}
             </div>
           </div>
         </div>

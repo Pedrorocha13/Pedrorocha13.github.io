@@ -1,51 +1,16 @@
-const stack = [
-  {
-    category: "CORE",
-    description: "Languages and foundations",
-    technologies: [
-      "Python",
-      "SQL",
-    ],
-  },
-  {
-    category: "DATA",
-    description: "Processing and orchestration",
-    technologies: [
-      "Apache Airflow",
-      "Apache Spark",
-      "Pandas",
-    ],
-  },
-  {
-    category: "STORAGE",
-    description: "Databases and object storage",
-    technologies: [
-      "PostgreSQL",
-      "SQL Server",
-      "MinIO",
-    ],
-  },
-  {
-    category: "PLATFORM",
-    description: "Infrastructure and delivery",
-    technologies: [
-      "Docker",
-      "Git",
-      "GitHub Actions",
-    ],
-  },
-];
+import { content, type Language } from "../content";
 
-function TechStack() {
+function TechStack({ language }: { language: Language }) {
+  const copy = content[language].stack;
   return (
     <section className="section container" id="stack">
       <div className="section__header">
         <span className="section__number">04</span>
-        <span className="section__label">STACK</span>
+        <span className="section__label">{copy.label}</span>
       </div>
 
       <div className="stack">
-        {stack.map((group, index) => (
+        {copy.groups.map((group, index) => (
           <article className="stack__group" key={group.category}>
             <div className="stack__heading">
               <span className="stack__number">
@@ -69,6 +34,7 @@ function TechStack() {
           </article>
         ))}
       </div>
+      <p className="stack__learning">{copy.learning}</p>
     </section>
   );
 }

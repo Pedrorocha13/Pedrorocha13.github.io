@@ -1,75 +1,18 @@
-const projects = [
-  {
-    number: "01",
-    title: "MeepleLake",
-    description:
-      "End-to-end data platform designed around a Medallion Architecture for collecting, processing and analyzing board game data.",
-    architecture: [
-      "API",
-      "MinIO",
-      "Spark",
-      "Iceberg",
-      "Analytics",
-    ],
-    technologies: [
-      "Python",
-      "Spark",
-      "Airflow",
-      "MinIO",
-      "Iceberg",
-    ],
-    link: "#",
-  },
-  {
-    number: "02",
-    title: "MusicPulse",
-    description:
-      "Automated data pipeline for ingesting, transforming and storing music streaming data for analytical workloads.",
-    architecture: [
-      "API",
-      "Airflow",
-      "PostgreSQL",
-      "Analytics",
-    ],
-    technologies: [
-      "Python",
-      "Airflow",
-      "PostgreSQL",
-      "Docker",
-    ],
-    link: "#",
-  },
-  {
-    number: "03",
-    title: "Weather Data Pipeline",
-    description:
-      "Automated ingestion and transformation pipeline built around weather API data.",
-    architecture: [
-      "OpenWeather",
-      "Python",
-      "Airflow",
-      "PostgreSQL",
-    ],
-    technologies: [
-      "Python",
-      "Airflow",
-      "PostgreSQL",
-      "Docker",
-    ],
-    link: "#",
-  },
-];
+import { content, type Language } from "../content";
 
-function Projects() {
+function Projects({ language }: { language: Language }) {
+  const copy = content[language].projects;
   return (
     <section className="section container" id="projects">
       <div className="section__header">
         <span className="section__number">02</span>
-        <span className="section__label">SELECTED WORK</span>
+        <span className="section__label">{copy.label}</span>
       </div>
 
+      <p className="section__intro">{copy.heading}</p>
+
       <div className="projects">
-        {projects.map((project) => (
+        {copy.items.map((project) => (
           <article className="project" key={project.title}>
             <div className="project__number">
               {project.number}
@@ -77,14 +20,18 @@ function Projects() {
 
             <div className="project__content">
               <div className="project__heading">
-                <h3>{project.title}</h3>
+                <div className="project__title">
+                  <h3>{project.title}</h3>
+                  {project.inProgress && <span className="project__status">{copy.statusInProgress}</span>}
+                </div>
 
                 <a
                   className="project__link"
                   href={project.link}
                   target="_blank"
                   rel="noreferrer"
-                  aria-label={`Open ${project.title}`}
+                  aria-label={`${copy.code}: ${project.title}`}
+                  title={`${copy.code}: ${project.title}`}
                 >
                   ↗
                 </a>

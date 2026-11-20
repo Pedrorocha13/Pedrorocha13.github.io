@@ -7,37 +7,45 @@ import TechStack from "./components/TechStack";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Reveal from "./components/Reveal";
+import { useEffect, useState } from "react";
+import type { Language } from "./content";
 
 import "./styles/globals.css";
 
 function App() {
+  const [language, setLanguage] = useState<Language>("en");
+
+  useEffect(() => {
+    document.documentElement.lang = language === "pt" ? "pt-BR" : "en";
+  }, [language]);
+
   return (
     <>
-      <Navbar />
+      <Navbar language={language} onLanguageChange={setLanguage} />
 
       <main>
-        <Hero />
+        <Hero language={language} />
 
         <Reveal>
-          <About />
+          <About language={language} />
         </Reveal>
 
         <Reveal>
-          <Projects />
+          <Projects language={language} />
         </Reveal>
 
         <Reveal>
-          <Experience />
+          <Experience language={language} />
         </Reveal>
 
         <Reveal>
-          <TechStack />
+          <TechStack language={language} />
         </Reveal>
 
-        <Contact />
+        <Contact language={language} />
       </main>
 
-      <Footer />
+      <Footer language={language} />
     </>
   );
 }
